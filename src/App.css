@@ -31,6 +31,10 @@ button {
   margin-top: 30px;
 }
 
+.settings-title {
+  text-align: center;
+}
+
 .settings {
   text-align: left;
 }

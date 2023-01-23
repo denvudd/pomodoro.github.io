@@ -15,6 +15,7 @@ function App() {
     <main>
       <div className="pomodoro">
         <div className="container">
+        <h1>Pomadoro Timer 🍅</h1>
           <SettingsContext.Provider value={{
             showSettings: showSettings,
             workMinutes: workMinutes,

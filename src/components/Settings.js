@@ -8,6 +8,7 @@ function Settings() {
   return (
     <div className="settings">
       <div className="slider-wrapper">
+        <h1 className="settings-title">Settings</h1>
         <label>Work: {settingsInfo.workMinutes}:00</label>
         <ReactSlider
                   className='slider red'

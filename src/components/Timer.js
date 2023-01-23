@@ -42,9 +42,6 @@ function Timer() {
     }
 
     const timer = setInterval(() => {
-      console.log(modeRef);
-      console.log('init')
-      console.log(secondsLeftRef);
       if (isPausedRef.current) {
         return;
       }
@@ -60,9 +57,7 @@ function Timer() {
     return () => clearInterval(timer);
   }, [settingsInfo]);
 
-  const totalSeconds = mode === 'work'
-  ? settingsInfo.workMinutes * 60
-  : settingsInfo.breakMinutes * 60;
+  const totalSeconds = (mode === 'work' ? settingsInfo.workMinutes : settingsInfo.breakMinutes) * 60;
   const percentage = Math.round(secondsLeft / totalSeconds * 100);
 
   const minutes = Math.floor(secondsLeft / 60);
@@ -81,7 +76,9 @@ function Timer() {
       <div className="button-inner">
         {isPaused 
         ? <PlayButton onClick={() => { setIsPaused(false); isPausedRef.current = false; }}/>
-        : <PauseButton onClick={() => { setIsPaused(true); isPausedRef.current = true; }} />}
+        : <PauseButton onClick={() => { setIsPaused(true); isPausedRef.current = true; }} />
+        }
+        {isPaused ? <div>Relax 💆‍♂️</div> : <div>Good work! 💻</div> }
       </div>
       <div className="settings-wrapper">
         <SettingsButton onClick={() => settingsInfo.setShowSettings(true)}/>
